@@ -1,0 +1,46 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int k = 0;
+
+string troca(string p_entrada, char c_substituir, char c_substituido) {
+  int len_vetor;
+  k = 0;
+  string k_ = "";
+  string p_saida = "";
+
+  int n = p_entrada.length();
+  char p_entrada_array[n + 1];
+  strcpy(p_entrada_array, p_entrada.c_str()); 
+
+  for(int i = 0; i < n + 1; i++){
+    if (p_entrada_array[i] == c_substituido) {
+        p_entrada_array[i] = c_substituir;
+        k ++;
+    }
+  p_saida = p_saida + p_entrada_array[i];
+  }
+
+  return p_saida;
+}
+
+int main() {
+  string  p_entrada;
+  string *pon_p_entrada;
+  int t_troca;
+  char c_substituir;
+  char c_substituido;
+  pon_p_entrada = &p_entrada;
+  cout << "Informar palavra" <<endl ;
+  cin >> p_entrada;
+  cout << "Caracter que será substituido" <<endl ;
+  cin >> c_substituido;
+  cout << "Carater que irá substiuir" <<endl ;
+  cin >> c_substituir;
+  cout << "A palavra origial é: " << *pon_p_entrada << endl << "A palavra trocada resultou em: " << troca(*pon_p_entrada, c_substituir, c_substituido) << endl << "Quantidade de trocas realizadas igual a: " << k << endl  << "A palavra contem: " << p_entrada.length() << " caracteres";
+
+  return 0;
+}
+
+
+
